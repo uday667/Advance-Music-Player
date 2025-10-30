@@ -1,0 +1,9 @@
+select * FROM playlist_item
+LEFT OUTER JOIN (
+   SELECT MIN(id) as RowId, playlist, playlist_id, song_id 
+   FROM playlist_item 
+   GROUP BY playlist, playlist_id, song_id
+) as KeepRows ON
+   playlist_item.id = KeepRows.RowId
+WHERE
+   KeepRows.RowId IS NULL

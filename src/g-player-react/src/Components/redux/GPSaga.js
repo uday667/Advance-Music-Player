@@ -1,0 +1,57 @@
+import { onDeleteMusicPath, onEditAlbumInfo, onEditTrackInfo, onFetchAlbum, onFetchAlbumimgs, onFetchAlbumListOfAA, onFetchAlbumsByGenre, onFetchAlbumTracks, onFetchAllAlbumArtistsDtls, onFetchAllAlbumDtls, onFetchAllAlbums, onFetchAllArtistsDtls, onFetchAllHistory, onFetchAllSongs, onFetchBuildStatus, onFetchGenreDetails, onFetchLanguageDetails, onFetchMessagesByType, onFetchMostPlayedData, onFetchMusicPath, onFetchSongsByArtist, onFetchSongsByGenre, onFetchSongsByLanguage, onInitArtistImgDownload, onInitDeltaLibraryBuild, onInitLibraryBuild, onsaveMusicPath, onSearchByKey, onUpdateHistory, onUploadArtistImg } from "./library/LibrarySaga";
+import {all} from 'redux-saga/effects'
+import { onDeleteLyrics, onFetchCurrentSongAndStatus, onFetchCurrentSongStatus, onPlayASong, onPlayPause, onSetMediaVolume, onSetPlayBackTime, onUpdateLyrics } from "./player/PlayerSaga";
+import { onAddToPlaylist, onCreatePlaylist, onDeletePlaylist, onExportPlaylists, onFetchAssignedPlaylits, onFetchPlaylistNames, onFetchSongsInPlaylist, onImportPlaylists, onRemoveFromPlaylist, onRenamePlaylist } from "./playlist/PlaylistSaga";
+
+export function* GPSaga(){
+    yield all([
+        onFetchAllSongs(),
+        onPlayPause(),
+        onPlayASong(),
+        onFetchCurrentSongStatus(),
+        onSetMediaVolume(),
+        onFetchAllAlbums(),
+        onFetchAlbumimgs(),
+        onFetchAllAlbumDtls(),
+        onFetchAlbumTracks(),
+        onSetPlayBackTime(),
+        onFetchAllArtistsDtls(),
+        onFetchSongsByArtist(),
+        onFetchAllAlbumArtistsDtls(),
+        onFetchAlbumListOfAA(),
+        onFetchGenreDetails(),
+        onFetchSongsByGenre(),
+        onFetchAlbumsByGenre(),
+        onFetchCurrentSongAndStatus(),
+        onUpdateLyrics(),
+        onDeleteLyrics(),
+        onFetchAlbum(),
+        onInitLibraryBuild(),
+        onInitDeltaLibraryBuild(),
+        onsaveMusicPath(),
+        onFetchMusicPath(),
+        onDeleteMusicPath(),
+        onSearchByKey(),
+        onFetchAllHistory(),
+        onUpdateHistory(),
+        onFetchBuildStatus(),
+        onFetchMostPlayedData(),
+        onInitArtistImgDownload(),
+        onFetchPlaylistNames(),
+        onFetchSongsInPlaylist(),
+        onAddToPlaylist(),
+        onCreatePlaylist(),
+        onDeletePlaylist(),
+        onRenamePlaylist(),
+        onRemoveFromPlaylist(),
+        onExportPlaylists(),
+        onImportPlaylists(),
+        onUploadArtistImg(),
+        onFetchLanguageDetails(),
+        onFetchSongsByLanguage(),
+        onEditTrackInfo(),
+        onEditAlbumInfo(),
+        onFetchMessagesByType(),
+        onFetchAssignedPlaylits()
+    ])
+}
